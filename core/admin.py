@@ -56,4 +56,12 @@ class AcessorioAdmin(admin.ModelAdmin):
     search_fields = ('descricao',)
     ordering = ('descricao',)
 
+@admin.register(models.Cor)
+class CorAdmin(admin.ModelAdmin):
+    list_display = ('id', 'nome')
+    search_fields = ('nome',)
+    ordering = ('nome',)
+
+
+
 admin.site.register(models.User, UserAdmin)
