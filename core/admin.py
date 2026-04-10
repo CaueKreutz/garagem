@@ -50,5 +50,10 @@ class UserAdmin(BaseUserAdmin):
         ),
     )
 
+@admin.register(models.Acessorio)
+class AcessorioAdmin(admin.ModelAdmin):
+    list_display = ('id', 'descricao')
+    search_fields = ('descricao',)
+    ordering = ('descricao',)
 
 admin.site.register(models.User, UserAdmin)
