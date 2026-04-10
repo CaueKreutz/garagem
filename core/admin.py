@@ -62,6 +62,13 @@ class CorAdmin(admin.ModelAdmin):
     search_fields = ('nome',)
     ordering = ('nome',)
 
+@admin.register(models.Modelo)
+class ModeloAdmin(admin.ModelAdmin):
+    list_display = ('id', 'nome', 'marca', 'categoria')
+    search_fields = ('nome', 'marca')
+    list_filter = ('marca', 'categoria')
+    ordering = ('marca', 'nome')
+
 
 
 admin.site.register(models.User, UserAdmin)
