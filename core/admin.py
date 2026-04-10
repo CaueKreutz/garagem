@@ -69,6 +69,12 @@ class ModeloAdmin(admin.ModelAdmin):
     list_filter = ('marca', 'categoria')
     ordering = ('marca', 'nome')
 
-
+@admin.register(models.Veiculo)
+class VeiculoAdmin(admin.ModelAdmin):
+    list_display = ('id', 'modelo', 'cor', 'ano', 'preco')
+    search_fields = ('modelo__nome', 'cor__nome')
+    list_filter = ('ano', 'modelo__marca', 'cor')
+    filter_horizontal = ('acessorios',)
+    ordering = ('-ano', 'modelo')
 
 admin.site.register(models.User, UserAdmin)
